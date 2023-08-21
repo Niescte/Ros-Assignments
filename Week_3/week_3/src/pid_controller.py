@@ -39,11 +39,6 @@ kpa = 0.01
 kda = 0.001
 kia = 0.0001
 
-'''
-kpa = 0.01
-kda = 1
-kia = 0.0001'''
-
 twist = Twist()
 distance = sqrt((goal_x - current_x)**2 + (goal_y - current_y)**2)
 total_distance = 0
@@ -70,7 +65,6 @@ while not rospy.is_shutdown():
             angle -= 360
         elif angle < -180:
             angle += 360
-        print("Angle bw target and current ",angle)
         total_angle = total_angle + angle
         ang_velocity = kpa*angle + kda*diff_angle + kia*total_angle
         if(ang_velocity>0):
